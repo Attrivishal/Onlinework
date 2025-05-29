@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Living Products - Empowering Your Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Custom styles to enhance Tailwind or add specific effects */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f4f8;
+            /* A very light blue-gray for a clean base */
+            color: #334155;
+            /* Slate 800 for main text */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .section-padding {
+            padding: 5rem 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 7rem 4rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            /* Wider container for more space */
+        }
+
+        /* Card styles with a slightly richer shadow and subtle border */
+        .card-aesthetic {
+            background-color: white;
+            border-radius: 1rem;
+            /* More rounded */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            /* stronger shadow */
+            padding: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            /* subtle border */
+        }
+
+        .card-aesthetic:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Primary Button */
+        .btn-primary-aesthetic {
+            background: linear-gradient(to right, #10B981, #059669);
+            /* Emerald shades */
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 9999px;
+            /* Fully rounded 'pill' button */
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary-aesthetic:hover {
+            background: linear-gradient(to right, #059669, #10B981);
+            /* Reverse gradient on hover */
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Secondary Button (for call to action) */
+        .btn-secondary-aesthetic {
+            background-color: white;
+            color: #10B981;
+            /* Emerald */
+            padding: 0.85rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid #10B981;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary-aesthetic:hover {
+            background-color: #ECFDF5;
+            /* Light green on hover */
+            color: #059669;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* Gradient Text for headings */
+        .text-gradient-primary-aesthetic {
+            background-image: linear-gradient(to right, #10B981, #059669);
+            /* Emerald green gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .text-gradient-secondary-aesthetic {
+            background-image: linear-gradient(to right, #3B82F6, #1D4ED8);
+            /* Blue gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hero section specific styling */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* JavaScript controlled reveal animation */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image hover effect */
+        .img-hover-effect {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .img-hover-effect:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        `
+
+        /* For the product category circles */
+        .product-category-circle {
+            background-color: #F8FAF0;
+            /* Lightest green for background */
+            border: 1px solid #D1FAE5;
+            /* A light emerald border */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="bg-gradient-to-r from-emerald-500 via-blue-500 to-emerald-700 shadow-xl py-4 sticky top-0 z-50">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <a href="#" class="flex items-center space-x-4 group">
+                <div
+                    class="bg-white/90 rounded-full p-1 shadow-lg border-4 border-emerald-300 transition-transform duration-300 group-hover:scale-105">
+                    <img src="image/forever-living-seeklogo.png" alt="Forever Living Logo"
+                        class="h-14 w-14 object-contain rounded-full" />
+                </div>
+                <span
+                    class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-white via-emerald-100 to-blue-100 bg-clip-text text-transparent tracking-wide drop-shadow-lg group-hover:text-white transition-colors duration-300">
+                    Forever Living Product
+                </span>
+            </a>
+            <ul class="hidden lg:flex space-x-8">
+                <li>
+                    <a href="#about"
+                        class="relative px-4 py-2 font-semibold text-white hover:text-emerald-200 transition duration-300 rounded-lg hover:bg-white/10 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-emerald-300 after:transition-all after:duration-300 hover:after:w-full">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="#opportunity"
+                        class="relative px-4 py-2 font-semibold text-white hover:text-emerald-200 transition duration-300 rounded-lg hover:bg-white/10 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-emerald-300 after:transition-all after:duration-300 hover:after:w-full">
+                        The Opportunity
+                    </a>
+                </li>
+                <li>
+                    <a href="#products"
+                        class="relative px-4 py-2 font-semibold text-white hover:text-emerald-200 transition duration-300 rounded-lg hover:bg-white/10 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-emerald-300 after:transition-all after:duration-300 hover:after:w-full">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="#plan"
+                        class="relative px-4 py-2 font-semibold text-white hover:text-emerald-200 transition duration-300 rounded-lg hover:bg-white/10 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-emerald-300 after:transition-all after:duration-300 hover:after:w-full">
+                        Marketing Plan
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact"
+                        class="relative px-4 py-2 font-semibold text-white hover:text-emerald-200 transition duration-300 rounded-lg hover:bg-white/10 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-1 after:bg-emerald-300 after:transition-all after:duration-300 hover:after:w-full">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+            <button id="mobile-menu-button"
+                class="lg:hidden text-white bg-emerald-600 hover:bg-emerald-700 rounded-full p-2 shadow-lg transition duration-300 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 py-3 shadow-inner rounded-b-2xl">
+            <ul class="flex flex-col items-center font-bold space-y-4">
+                <li><a href="#about"
+                        class="block py-2 px-6 text-emerald-700 hover:bg-emerald-100 rounded-lg transition duration-300">About
+                        Us</a></li>
+                <li><a href="#opportunity"
+                        class="block py-2 px-6 text-emerald-700 hover:bg-emerald-100 rounded-lg transition duration-300">The
+                        Opportunity</a></li>
+                <li><a href="#products"
+                        class="block py-2 px-6 text-emerald-700 hover:bg-emerald-100 rounded-lg transition duration-300">Products</a>
+                </li>
+                <li><a href="#plan"
+                        class="block py-2 px-6 text-emerald-700 hover:bg-emerald-100 rounded-lg transition duration-300">Marketing
+                        Plan</a></li>
+                <li><a href="#contact"
+                        class="block py-2 px-6 text-emerald-700 hover:bg-emerald-100 rounded-lg transition duration-300">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+
+    <section class="relative bg-cover bg-center h-[90vh] flex items-center justify-center text-white"
+        style="background-image: url('https://placehold.co/1920x1080/10B981/ffffff?text=Empower+Your+Future+with+Forever+Living');">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="z-10 text-center px-6 container mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-down">
+                <span class="text-emerald-300">Forever Living</span>: Your Path to Wellness & Prosperity
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-fade-in-up">
+                Celebrating over 40 years of empowering lives with superior health products and an unparalleled business
+                opportunity.
+            </p>
+            <div class="space-x-4 animate-fade-in">
+                <a href="#opportunity" class="btn-primary-aesthetic inline-block text-lg">Discover the Opportunity</a>
+                <a href="#products" class="btn-secondary-aesthetic inline-block text-lg mt-4 md:mt-0">Explore Our
+                    Products</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="challenges" class="section-padding bg-gray-50 reveal-on-scroll">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14 text-gradient-primary-aesthetic">Are You Facing These Challenges?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="card-aesthetic flex flex-col items-center text-center p-6">
+                    <img src="https://placehold.co/100x100/A7F3D0/065F46?text=Job" alt="Job Challenges"
+                        class="w-24 h-24 mb-6 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">In Your Job?</h3>
+                    <ul class="text-gray-600 text-left list-disc list-inside space-y-2 text-base">
+                        <li>Uncertain future & job insecurity</li>
+                        <li>High stress, leading to health issues</li>
+                        <li>Lack of work-life balance & family time</li>
+                        <li>Stagnant growth & monotonous work</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-6">
+                    <img src="https://placehold.co/100x100/BFDBFE/1D4ED8?text=Business" alt="Business Challenges"
+                        class="w-24 h-24 mb-6 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">In Your Business?</h3>
+                    <ul class="text-gray-600 text-left list-disc list-inside space-y-2 text-base">
+                        <li>Intense competition & slim profit margins</li>
+                        <li>Ever-increasing operational overheads</li>
+                        <li>Daily stress impacting well-being</li>
+                        <li>Sacrificing personal and family life</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-6">
+                    <img src="https://placehold.co/100x100/FEE2E2/B91C1C?text=Young" alt="Young Adult Challenges"
+                        class="w-24 h-24 mb-6 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-800">As a Young Adult?</h3>
+                    <ul class="text-gray-600 text-left list-disc list-inside space-y-2 text-base">
+                        <li>Financial instability & lack of control</li>
+                        <li>Unfulfilling work with poor conditions</li>
+                        <li>Searching for purpose and self-worth</li>
+                        <li>Challenges in achieving personal goals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="opportunity" class="section-padding bg-white reveal-on-scroll">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14 text-gradient-secondary-aesthetic">Unlock Your Potential & Fulfill Your
+                Dreams!</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/FCD34D/78350F?text=F" alt="Financial Freedom"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm  img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Financial Freedom</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/D1FAE5/065F46?text=P" alt="Peace of Mind"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Peace of Mind</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/BFDBFE/1E40AF?text=S" alt="Secure Future"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Secure Future</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/FECACA/B91C1C?text=L" alt="Improved Lifestyle"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Improved Lifestyle</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/C7D2FE/3730A3?text=H" alt="Family Holidays"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Family Holidays</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/FBCFE8/831843?text=R" alt="Recognition"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Global Recognition</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/D1FAE5/047857?text=W" alt="Healthy Lifestyle"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">Healthy Lifestyle</h3>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center text-center p-4">
+                    <img src="https://placehold.co/80x80/E0E7FF/3730A3?text=∞" alt="And So Much More"
+                        class="w-20 h-20 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <h3 class="text-xl font-semibold text-gray-800">And So Much More...</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-gray-50 reveal-on-scroll">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14 text-gradient-primary-aesthetic">Network Marketing: The Modern Solution
+            </h2>
+            <p class="text-lg text-gray-700 mb-10 max-w-4xl mx-auto">
+                Discover a business model with a proven track record, backed by exceptional products and a highly
+                rewarding compensation plan.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="card-aesthetic text-left p-8">
+                    <h3 class="text-2xl font-semibold mb-5 text-gray-800">Why Choose Network Marketing?</h3>
+                    <ul class="text-gray-600 list-disc list-inside space-y-3 text-lg">
+                        <li>Low (or no) risk business ownership entry</li>
+                        <li>Flexible hours: work when, where, and how much you desire</li>
+                        <li>Direct correlation between effort and earning potential</li>
+                        <li>Comprehensive, free training & mentorship from leaders</li>
+                        <li>Build a global business from your home</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic text-left p-8">
+                    <h3 class="text-2xl font-semibold mb-5 text-gray-800">Global Impact & Growth (2018-19 Insights)</h3>
+                    <ul class="text-gray-600 list-disc list-inside space-y-3 text-lg">
+                        <li>A thriving global industry, valued at ~$193 billion in 2018.</li>
+                        <li>China and USA leading the market with significant contributions.</li>
+                        <li>Over 11.8 million independent representatives worldwide.</li>
+                        <li>Consistent sales growth reported across all regions.</li>
+                        <li>A robust and resilient business model.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-white reveal-on-scroll">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gradient-primary-aesthetic">About Forever Living
+                Products</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Our Heritage & Visionary Leadership</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                        Forever Living Products began its journey in 1978 in Phoenix, Arizona, USA. Our founder, Rex
+                        Maughan, envisioned a company that would offer solutions for both better health and true
+                        financial freedom. His unwavering dedication has since transformed countless lives globally.
+                    </p>
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">Our Inspiring Mission:</h4>
+                    <blockquote class="italic text-gray-600 border-l-4 border-emerald-500 pl-6 py-2 text-lg">
+                        "We will create a profitable environment where individuals can, with dignity, be what they want
+                        to be. Where integrity, empathy and fun are our guides. We will create and cherish a passion
+                        for, and belief in, our company, our products and our industry. We will seek knowledge, and
+                        balance and above all, we will be courageous as we lead our company and its Forever Business
+                        Owners."
+                        <footer class="text-sm mt-3 font-semibold text-gray-500">- Rex Maughan, Chairman and CEO
+                        </footer>
+                    </blockquote>
+                </div>
+                <div class="relative w-full h-100 md:h-[500px] rounded-2xl overflow-hidden shadow-xl img-hover-effect">
+                    <img src="./image/Rex-Maughan.jpg" alt="Rex Maughan, Founder of Forever Living Products"
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+                <div
+                    class="relative w-full h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-xl img-hover-effect order-2 lg:order-1">
+                    <img src="./image/globalmap.png" alt="World Map showing Forever Living Global Presence"
+                        class="w-full h-full object-cover">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Global Footprint & Financial Strength</h3>
+                    <ul class="text-gray-700 list-disc list-inside space-y-3 mb-6 text-lg">
+                        <li>A robust, privately owned company with over $1.5 billion in assets – cash rich and debt
+                            free.</li>
+                        <li>Operating successfully in over 160 countries, demonstrating consistent growth for over 40
+                            years.</li>
+                        <li>A proud community of more than 10 million Forever Business Owners (FBOs) worldwide.</li>
+                    </ul>
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Vertical Integration: Quality "From Plant to
+                        Product to You"</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                        We maintain unparalleled quality and cost control by owning and managing every stage: from
+                        cultivating our vast aloe plantations (over 7500 acres with 50 million plants producing 65
+                        million pounds annually) to manufacturing, R&D, quality control, and global distribution.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Advanced Manufacturing & Uncompromising
+                        Quality</h3>
+                    <ul class="text-gray-700 list-disc list-inside space-y-3 mb-6 text-lg">
+                        <li>Utilizing aseptic packaging for pure, preservative-free Aloe Drinks.</li>
+                        <li>Our patented Stabilization Process flash heats the inner leaf gel, preserving freshness and
+                            boosting vitamin retention by 300%.</li>
+                        <li>Forever Nutraceutical (FN) conducts 1.5 million quality tests annually, holding the
+                            prestigious ISO 17025 certification.</li>
+                        <li>Aloe Vera of America (AVA) efficiently ships vast quantities of pure aloe products to over
+                            160 countries.</li>
+                    </ul>
+                    <h3 class="text-3xl font-semibold mb-6 text-gray-800">Our Commitment to Environmental Stewardship
+                    </h3>
+                    <ul class="text-gray-700 list-disc list-inside space-y-3 text-lg">
+                        <li>Recipient of the esteemed Blue Thumb Award for three consecutive years.</li>
+                        <li>Achieved a 90% reduction in water usage through solar-powered pumps and advanced drip
+                            irrigation.</li>
+                        <li>Our 50 million aloe plants actively cleanse the earth of hundreds of millions of tons of CO2
+                            each year.</li>
+                        <li>Proudly using shipping boxes made from 85% recycled materials and environmentally friendly
+                            inks.</li>
+                    </ul>
+                </div>
+                <div class="relative w-full h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-xl img-hover-effect">
+                    <img src="./image/manufacturing.jpg" alt="State-of-the-art manufacturing facility"
+                        class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section-padding bg-gray-50 reveal-on-scroll">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14 text-gradient-secondary-aesthetic">Discover Our Superior Quality
+                Products</h2>
+            <p class="text-lg text-gray-700 mb-10 max-w-4xl mx-auto">
+                At the heart of Forever's extensive product line is our pure, stabilized Aloe Vera. We are the world's
+                leading grower and manufacturer of aloe vera and aloe vera based products, ensuring uncompromised
+                quality from plant to product.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+                <div class="card-aesthetic text-left p-8">
+                    <h3 class="text-2xl font-semibold mb-5 text-gray-800">The Incredible Power of Aloe Vera</h3>
+                    <ul class="text-gray-600 list-disc list-inside space-y-3 text-lg">
+                        <li>Optimal Variety: We cultivate `Aloe Barbadensis Miller`, known for its exceptional
+                            nutritional value.</li>
+                        <li>Hand-Harvested Purity: Our aloe is meticulously hand-harvested, ensuring the purest
+                            inner leaf gel.</li>
+                        <li>Nutrient Powerhouse: Packed with over 75 nutrients, including 20 minerals, 12 vitamins,
+                            and 18 amino acids.</li>
+                        <li>Triple Action: Works in three stages: Cleansing (Lignin, Saponin), Nourishment
+                            (Vitamins, Minerals, Amino Acids), and Therapeutic (Enzymes, Anthraquinones).</li>
+                        <li>Versatile Use: Ideal for both internal consumption and external skin application,
+                            mirroring skin's natural pH.</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic text-left p-8">
+                    <h3 class="text-2xl font-semibold mb-5 text-gray-800">Why Choose Forever Aloe Vera Gel?</h3>
+                    <ul class="text-gray-600 list-disc list-inside space-y-3 text-lg">
+                        <li>Pure Inner Gel: Contains only the highly nutritious inner gel, 100% safe for internal
+                            use.</li>
+                        <li>Patented Stabilization: Our process locks in freshness and nutrients, unlike others.
+                        </li>
+                        <li>All Natural: Free from artificial colors, flavors, homogenization, or excessive
+                            filtration.</li>
+                        <li>Certified Excellence:Proudly certified by the IASC for superior potency and purity
+                            (99.7% pure).</li>
+                        <li>Dietary Friendly: Naturally sugar-free, gluten-free, rich in Vitamin C, and no added
+                            preservatives.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-10 text-gradient-primary-aesthetic">Explore Our Diverse Product Categories
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/8BC34A/000000?text=Immunity" alt="Immunity Support Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Immunity Support</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/E91E63/000000?text=Heart" alt="Heart Care Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Heart Care</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/FFEB3B/000000?text=Bee" alt="Bee Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Bee Products</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/9C27B0/ffffff?text=Weight" alt="Weight Management Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Weight Management</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/00BCD4/ffffff?text=Joint" alt="Joint Care Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Joint & Bone Care</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/FF9800/ffffff?text=Nutrition" alt="Nutrition Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Daily Nutrition</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/4CAF50/ffffff?text=Skincare" alt="Skincare Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Advanced Skincare</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/795548/ffffff?text=Personal" alt="Personal Care Products"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Personal Care</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/607D8B/ffffff?text=Essential" alt="Essential Oils"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Essential Oils</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-4 product-category-circle">
+                    <img src="https://placehold.co/120x120/9E9E9E/ffffff?text=Hygiene" alt="Household Hygiene"
+                        class="w-28 h-28 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-lg">Household & Hygiene</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="plan" class="section-padding bg-white reveal-on-scroll">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-14 text-gradient-primary-aesthetic">Forever's Unrivaled Marketing Plan</h2>
+            <p class="text-lg text-gray-700 mb-10 max-w-4xl mx-auto">
+                Our compensation plan is recognized as one of the most generous in the industry, offering a rewarding
+                payout structure of up to 48%. Experience true financial empowerment with a fair, transparent, and
+                globally recognized business opportunity.
+            </p>
+
+            <h3 class="text-3xl font-bold mb-10 text-gradient-secondary-aesthetic">Distinctive Advantages of Our Plan
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+                <div class="card-aesthetic text-left p-8">
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">Accessibility & Zero Barrier Entry</h4>
+                    <ul class="text-gray-600 list-disc list-inside space-y-2 text-lg">
+                        <li>Absolutely no joining fees to get started.</li>
+                        <li>No expensive starter kits required.</li>
+                        <li>No annual renewal fees, ensuring long-term value.</li>
+                        <li>Eliminate warehousing expenses – we handle logistics.</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic text-left p-8">
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">Flexibility & Comprehensive Support</h4>
+                    <ul class="text-gray-600 list-disc list-inside space-y-2 text-lg">
+                        <li>Build your business right from home.</li>
+                        <li>Access to free, comprehensive basic trainings.</li>
+                        <li>Direct engagement with Forever, no intermediaries.</li>
+                        <li>Truly equal opportunity for every individual.</li>
+                        <li>Flexible 2 or 4-month consecutive promotion plan.</li>
+                    </ul>
+                </div>
+                <div class="card-aesthetic text-left p-8">
+                    <h4 class="text-2xl font-semibold mb-4 text-gray-800">Long-Term Growth & Exceptional Rewards</h4>
+                    <ul class="text-gray-600 list-disc list-inside space-y-2 text-lg">
+                        <li>No reversion from your achieved level – your progress is secure.</li>
+                        <li>Enjoy robust royalty income for sustained effort.</li>
+                        <li>Expand your business globally – operate in over 160 countries.</li>
+                        <li>Business is inheritable, securing your family's future.</li>
+                        <li>Industry's highest payout, up to an incredible 38%.</li>
+                        <li>Bonuses calculated on **143% of the Wholesale Price**!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-bold mb-10 text-gradient-primary-aesthetic">Exclusive Incentives & Bonuses</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/FFD700/000000?text=Leadership" alt="Leadership Bonus Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Leadership Bonus (Royalty)</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/C0C0C0/000000?text=Gem" alt="Gem Bonus Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Gem Bonus</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/FF4500/ffffff?text=Car" alt="Forever2Drive Car Plan Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Forever2Drive (Car Plan)</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/1E90FF/ffffff?text=Retreat" alt="Manager Retreat Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Manager Retreat</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/32CD32/ffffff?text=Rally" alt="Global Rally Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Global Rally</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/FF69B4/ffffff?text=Eagle" alt="Eagle Manager Retreat Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Eagle Manager Retreat</p>
+                </div>
+                <div class="card-aesthetic flex flex-col items-center p-6">
+                    <img src="https://placehold.co/100x100/8A2BE2/ffffff?text=Chairman" alt="Chairman Bonus Icon"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-sm img-hover-effect">
+                    <p class="font-semibold text-gray-800 text-xl">Chairman Bonus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials section -->
+    <section class="bg-gray-100 py-20">
+        <div class="container mx-auto px-6">
+            <h2
+                class="text-4xl font-bold text-center mb-14 text-gradient-secondary-aesthetic shadow-sm hover:text-blue-600">
+                What Our FBOs Says:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-aesthetic p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/4CAF50/ffffff?text=FBO1" alt="FBO Testimonial 1"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mr. Anmol Kapoor</h3>
+                    <p class="text-gray-600">"Forever Living has transformed my life. The products are exceptional, and
+                        the
+                        business opportunity is truly empowering!"</p>
+                </div>
+                <div class="card-aesthetic p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/2196F3/ffffff?text=FBO2" alt="FBO Testimonial 2"
+                        class="w-24 h-24 mb-4 rounded-full object-cover  text-center shadow-md img-hover-effect">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mr. Shivam Chaudhary</h3>
+                    <p class="text-gray-600">"Joining Forever was the best decision I ever made. The support and
+                        community
+                        are incredible!"</p>
+                </div>
+                <div class="card-aesthetic p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/E91E63/ffffff?text=FBO3" alt="FBO Testimonial 3"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Mr. Tushar Chaudhary</h3>
+                    <p class="text-gray-600">"The flexibility and financial freedom I have gained through Forever is
+                        beyond
+                        my expectations!"</p>
+                </div>
+                <div class="card-aesthetic p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/100x100/E91E63/ffffff?text=FBO3" alt="FBO Testimonial 3"
+                        class="w-24 h-24 mb-4 rounded-full object-cover shadow-md img-hover-effect">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-800">MS. Aayushi Chaudhary</h3>
+                    <p class="text-gray-600">"
+                        Joining Forever Living has been a life-changing experience. The products are top-notch, and the
+                        business
+                        opportunity is unmatched.!"</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-gradient-to-r from-emerald-500 to-blue-600 text-white text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to Transform Your Life?</h2>
+            <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto">
+                If you have the drive and the dreams, Forever Living Products provides the perfect platform to fulfill
+                them. Join our global family and start building a healthier, more prosperous future today.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-8">
+                <a href="#contact"
+                    class="btn-secondary-aesthetic bg-white text-emerald-700 hover:bg-emerald-100 hover:text-emerald-800 px-10 py-5 rounded-full font-bold text-xl transition duration-300 shadow-xl">
+                    Become a Preferred Customer
+                </a>
+                <a href="#contact"
+                    class="btn-primary-aesthetic bg-white text-blue-700 hover:bg-blue-100 hover:text-blue-800 px-10 py-5 rounded-full font-bold text-xl transition duration-300 shadow-xl">
+                    Become an FBO & Build Your Business
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-8 text-white hover:text-blue-200">Connect With Us</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 text-lg">
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Office Address</h4>
+                    <p>501, Sharyans Center, Above Lijjat Papad,<br> Opp. Bandra Railway Station, 3, Gurunanak Road,<br>
+                        Bandra (W), Mumbai - 400 050, India</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Get in Touch</h4>
+                    <p class="mb-2">Customer Care: <a href="tel:+912266414000"
+                            class="text-emerald-400 hover:underline">+91 22 6641 4000</a></p>
+                    <p class="mb-2">Email: <a href="mailto:flpcare@flpindia.net"
+                            class="text-emerald-400 hover:underline">flpcare@flpindia.net</a></p>
+                    <p>Website: <a href="https://www.foreverliving.com" target="_blank"
+                            class="text-emerald-400 hover:underline">www.foreverliving.com</a></p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-3">Follow Us</h4>
+                    <div class="flex justify-center space-x-6 text-3xl">
+                        <a href="https://www.facebook.com/flpindia"
+                            class="text-gray-400 hover:text-white transition duration-300"><ion-icon
+                                name="logo-facebook"></ion-icon></a>
+                        <a href="https://www.instagram.com/flpindia"
+                            class="text-gray-400 hover:text-white transition duration-300"><ion-icon
+                                name="logo-instagram"></ion-icon></a>
+                        <a href="https://x.com/flpindia?lang=en"
+                            class="text-gray-400 hover:text-white transition duration-300"><ion-icon
+                                name="logo-twitter"></ion-icon></a>
+                        <a href="https://www.facebook.com/flpindia"
+                            class="text-gray-400 hover:text-white transition duration-300"><ion-icon
+                                name="logo-youtube"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-12 text-sm">&copy; 2023 Forever Living Products. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/7889360112" target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg p-4 flex items-center transition">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.44l-.37-.22-3.67.97.98-3.58-.24-.37A9.93 9.93 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.8c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.02-.22-.53-.45-.46-.62-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.02 2.81 1.16 3 .14.19 2.02 3.09 4.9 4.21.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.65-.67 1.89-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z" />
+        </svg>
+        <span class="ml-2 font-semibold hidden md:inline">Chat</span>
+    </a>
+
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Calculate offset for sticky header
+                    const headerOffset = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu after clicking a link
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Toggle mobile menu visibility
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for scroll reveal animations
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% of element visible to trigger
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once revealed
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
